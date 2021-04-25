@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Valida CPF</title>
+{% endblock %}
+
+
+
+{% block body %}
+    <form action="/" method="POST">
+        <h1>Verificar CPF</h1>
+        <div>{{ retorno }}</div>
+        <span>
+            <label for="">CPF:</label>
+            <input type="text" name="content" id="content">
+        </span>
+        <br>
+        <button type="submit">Validar</button>
+        <a href="/">Reset</a>
+    </form>
+{% endblock %}
