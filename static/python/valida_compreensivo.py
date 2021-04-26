@@ -1,5 +1,9 @@
-#Versão fracionada do codigo para facilitar compreensao
+# Versão fracionada do codigo para facilitar compreensão
+# Este arquivo não é chamado em momento nenhum da aplicação
+# e pode ser testado direto pelo terminal
 
+# Função principal que chama todas as outras 
+# compara os numeros finais e retorna o resultado
 def verifica_cpf(cpf):
     numeros = retorna_numeros(cpf)
     if len(numeros) == 11:
@@ -10,6 +14,7 @@ def verifica_cpf(cpf):
     else:
         print("Formato de CPF inválido")
 
+# Função que remove qualquer caractere não numérico do input
 def retorna_numeros(cpf):
     numeros_cpf = []
     for numero in list(str(cpf)):
@@ -18,6 +23,9 @@ def retorna_numeros(cpf):
     numeros_cpf = [int(x) for x in numeros_cpf]
     return numeros_cpf
 
+# Função que recebe os números do cpf
+# envia dados para outra função que calcula o resto da divisão
+# e retorna os números finais que o cpf deveria ter
 def retorna_comparativo(numeros):
     comparativo = []
     passo = 1
@@ -31,6 +39,8 @@ def retorna_comparativo(numeros):
             comparativo.append(0)
     return comparativo
 
+# Função que realiza a somatoria da multiplicação dos números individuais
+# e retorna o resto da divisão para dar continuidade ao calculo
 def retorna_resto(numeros, qtd):
     index = 0
     regressivo = 12 - qtd
@@ -42,4 +52,5 @@ def retorna_resto(numeros, qtd):
             index += 1
     return resultado % 11
 
+# Chamada da função com solicitação de entrada de dados
 verifica_cpf(input("Informe seu cpf:"))
